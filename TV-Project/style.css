@@ -1,0 +1,69 @@
+#root {
+  color: #ff8b00;
+}
+body{
+  background-color:black ;
+  color: white;
+}
+.navbar{
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  padding-left: 10px;
+  background-color:#1d1d1d ;
+  
+}
+.navlinks{
+  display: flex;
+  justify-content:right;
+  text-align: right;
+  font-size: 16px;
+}
+header{
+font-family:'Times New Roman', Times, serif;
+font-weight: lighter;
+text-align: center;
+margin:50px;
+}
+.header-span{
+  color:#ff8b00;
+}
+main{
+  font-size: 20px;
+}
+#main{
+  background-color:black;
+  padding: 15px;
+}
+.article{
+  margin-bottom: 25px;
+  background-color: #1d1d1d;
+  color:hsla(0,0%,100%,.5);
+  border-radius: 15px;
+  padding: 15px;
+}
+#btn-search{
+  color:white;
+  background-color: #ff8b00;
+  width:80px;
+  height:30px;
+  border:none;
+  border-radius:15px;
+}
+.name-movie{
+  color:white;
+  border-radius: 15px;
+  padding: 5px;
+  width:40%;
+  
+}
+hr{
+  color:hsla(0,0%,100%,.5);
+  
+}
+
+.season{
+  line-height: 3px;
+  font-size: 18px;
+}
