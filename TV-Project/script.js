@@ -5,7 +5,6 @@ function setup() {
 }
 
 function makePageForEpisodes(episodeList) {
-  console.log(episodeList);
   const rootElem = document.getElementById("root");
   rootElem.textContent = `Got ${episodeList.length} episode(s)`;
   for(item of episodeList){
@@ -15,7 +14,8 @@ function makePageForEpisodes(episodeList) {
     let airdate= getResults.airdate;
     let imageLink =getResults.image.medium;
     let description=getResults.summary;
-    
+    let readMore=getResults._links.self.href;
+    console.log(readMore);
     let getArticle=document.querySelector("#main-container");
     let getMovie=document.createElement("div");
     getMovie.className="article"
@@ -43,8 +43,42 @@ function makePageForEpisodes(episodeList) {
     getMovie.appendChild(getSummary);
     getSummary.className="description";
 
+    let getMoreInfo=document.createElement("button");
+
+    let srcLinkInfo=document.createElement("a");
+    srcLinkInfo.setAttribute("href", readMore);
+    getMoreInfo.appendChild(srcLinkInfo);
+    getMovie.appendChild(getMoreInfo);
+
     let stripe=document.createElement("hr");
     getMovie.appendChild(stripe);
 }}
-    
+
+   let inputResult=document.querySelector("#fname");
+   let resultOfSearch=inputResult.value;
+  
+   inputResult.addEventListener("keypress", function (e, item){
+    console.log(inputResult.value);
+     if (e.key === 'Enter') {
+     
+     const allEpisodes = getAllEpisodes();
+     let filtered = allEpisodes.filter((item)=>{ 
+       if (item.name.includes(inputResult.value) || item.summary.includes(inputResult.value)){
+          return true;
+        }
+       }
+     )
+     console.log(filtered);
+     let getArticle=document.querySelector("#main-container");
+     getArticle.innerHTML="";
+     makePageForEpisodes(filtered);
+    }
+});   
+ 
+let appearField=document.querySelector("#inputbtn");
+appearField.addEventListener("click", getField);
+function getField(){
+  let searchField = document.querySelector("#fname");
+  searchField.style.display="inline";
+}
 window.onload = setup;
